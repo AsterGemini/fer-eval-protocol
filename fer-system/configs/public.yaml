@@ -1,0 +1,134 @@
+# Public-slug recipe — the default train / eval / demo config (PROTOCOL.md).
+# Private ExpW packs and run-specific recipes belong in a gitignored local
+# file such as configs/private.yaml. Do not copy those recipes into this file.
+#
+# Datasets are third-party. Download via kagglehub; do not commit faces or
+# trained weights. Check each source's license before any redistribution.
+
+seed: 42
+
+data:
+  source_name: "fer2013_jonathanoheix"
+  source_notes: "Cleaned FER2013-style ImageFolder split (Kaggle)."
+  kaggle_slug: "jonathanoheix/face-expression-recognition-dataset"
+  root_dir: null
+  train_dir: "images/train"
+  val_dir: "images/validation"
+  # Overlay reverted 2026-08-24 (circular eval). Must stay null.
+  val_label_corrections: null
+  extra_train_sources:
+    - name: "raf_db"
+      notes: "RAF-DB basic 7 emotions. Train split + eval-only val (checkpoint monitor)."
+      kaggle_slug: "nishchalchandel/raf-db-face-emotion-dataset"
+      train_dir: "train"
+      val_dir: "validation"
+    - name: "affectnet"
+      notes: "AffectNet 7-class in-the-wild subset. Train only; contempt ignored."
+      kaggle_slug: "mstjebashazida/affectnet"
+      train_dir: "Train"
+      folder_map:
+        angry: anger
+    - name: "expw"
+      notes: "ExpW in-the-wild faces (raw 7z + label.lst → prepared crops). Train only."
+      kaggle_slug: "shahzadabbas/expression-in-the-wild-expw-dataset"
+      prepare: "expw"
+      train_dir: "train"
+    - name: "ferplus_minority"
+      notes: "FER+ high-agreement disgust/fear (Training rows only). Not a val split."
+      kaggle_slug: "deadskull7/fer2013"
+      prepare: "ferplus_minority"
+      train_dir: "train"
+    - name: "ckplus"
+      notes: "CK+48 lab-posed disgust/fear. Train only."
+      kaggle_slug: "shawon10/ckplus"
+      prepare: "ckplus"
+      train_dir: "train"
+    - name: "minority_boost"
+      notes: "AffectNet-family disgust/fear; near-dups of FER/AffectNet/RAF removed. Train only."
+      kaggle_slug: "prasadsomvanshih/fer2013-affectnet-dataset-emotions"
+      prepare: "minority_boost"
+      train_dir: "train"
+  num_workers: 4
+  image_size: 224
+  mean: [0.485, 0.456, 0.406]
+  std: [0.229, 0.224, 0.225]
+
+augmentation:
+  horizontal_flip_p: 0.5
+  rotation_degrees: 20
+  affine:
+    translate: 0.08
+    scale_min: 0.9
+    scale_max: 1.1
+  color_jitter:
+    brightness: 0.3
+    contrast: 0.3
+  random_erasing:
+    p: 0.25
+    scale: [0.02, 0.15]
+    ratio: [0.3, 3.3]
+
+model:
+  backbone: "efficientnet_b0"
+  pretrained: true
+  num_classes: 7
+  dropout: 0.333
+  drop_path_rate: 0.15
+
+class_names:
+  - angry
+  - disgust
+  - fear
+  - happy
+  - neutral
+  - sad
+  - surprise
+
+inference:
+  ensemble:
+    enabled: false
+    method: "weighted_mean_probabilities"
+    members:
+      - checkpoint: "artifacts/models/efficientnet_b0/checkpoints/best.pt"
+        weight: 0.8
+      - checkpoint: "artifacts/models/efficientnet_b2/checkpoints/best.pt"
+        weight: 0.2
+    # Nested opt-in: used when two members are loaded (config enabled or
+    # FER_CHECKPOINTS). Always-on ensemble remains the eval baseline
+    # (`src.evaluate` without --cascade). max_entropy is uncalibrated
+    # until a RAF-DB sweep (try 0.4 / 0.8 / 1.2). log(7) ≈ 1.95 is uniform.
+    cascade:
+      enabled: true
+      rule: "entropy"
+      max_entropy: 0.8
+
+training:
+  batch_size: 64
+  epochs: 8
+  lr: 8.0e-5
+  weight_decay: 5.0e-4
+  use_weighted_sampler: false
+  use_class_weights: true
+  class_weight_multipliers:
+    sad: 1.5
+  label_smoothing: 0.1
+  early_stopping_patience: 5
+  grad_clip_norm: 1.0
+  monitor_metric: "raf_db.macro_f1"
+  resume_from_best: true
+  update_ratio_every: 10
+  use_amp: true
+
+optimizer:
+  name: "adamw"
+  betas: [0.9, 0.999]
+
+scheduler:
+  name: "cosine"
+  eta_min_ratio: 0.1
+
+paths:
+  checkpoint_dir: "artifacts/models/efficientnet_b0/checkpoints"
+  log_dir: "artifacts/models/efficientnet_b0/logs"
+  figure_dir: "artifacts/models/efficientnet_b0/figures"
+  best_checkpoint: "artifacts/models/efficientnet_b0/checkpoints/best.pt"

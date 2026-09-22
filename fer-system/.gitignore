@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# ML artifacts live under artifacts/models/<backbone>/. Keep dir
+# scaffolding via .gitkeep only — never commit trained weights.
+artifacts/models/*
+!artifacts/models/efficientnet_b0/
+artifacts/models/efficientnet_b0/*
+!artifacts/models/efficientnet_b0/checkpoints/
+!artifacts/models/efficientnet_b0/logs/
+!artifacts/models/efficientnet_b0/figures/
+artifacts/models/efficientnet_b0/checkpoints/*
+!artifacts/models/efficientnet_b0/checkpoints/.gitkeep
+artifacts/models/efficientnet_b0/logs/*
+!artifacts/models/efficientnet_b0/logs/.gitkeep
+artifacts/models/efficientnet_b0/figures/*
+!artifacts/models/efficientnet_b0/figures/.gitkeep
+!artifacts/models/efficientnet_b2/
+artifacts/models/efficientnet_b2/*
+!artifacts/models/efficientnet_b2/checkpoints/
+artifacts/models/efficientnet_b2/checkpoints/*
+!artifacts/models/efficientnet_b2/checkpoints/.gitkeep
+
+# Colab-exported artifacts
+artifacts_from_googlecolab/
+
+# Human-labeled demo crops (eval-only; faces are PII)
+data/human_feedback/eval/**
+!data/human_feedback/eval/.gitkeep
+data/human_feedback/feedback.jsonl
+
+# Human label-audit packs (copied val faces)
+data/label_review/val_errors/images/
+data/label_review/val_errors/index.html
+data/label_review/val_errors/review.json
+data/label_review/val_errors/judgments.json
+data/label_review/raf_db_inspect/
+
+# Dataset cache (kagglehub downloads elsewhere by default)
+data/raw/
+# Prepared ImageFolder trees derived from raw packs (e.g. ExpW crops)
+data/prepared/
+*.pt
+*.pth
+*.onnx
+
+# Secrets / credentials / local session files
+kaggle.json
+*.key
+*.env
+*.session.env
+# Live Vast SSH host/port (changes each rental; do not commit)
+VAST.session.env
+# Local-only private training recipes (ExpW packs, run lore)
+configs/private.yaml
+configs/*.local.yaml
+
+# Local demo / test face images (PII; not part of the public dump)
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.gif

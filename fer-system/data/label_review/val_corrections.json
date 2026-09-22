@@ -1,0 +1,231 @@
+{
+  "version": 1,
+  "policy": "Drop unsure. Remap wrong official labels to the audit-time model prediction. Keep correct official labels. Overlay only; do not rewrite the kagglehub val tree.",
+  "n_items": 25,
+  "n_drop": 4,
+  "n_remap": 13,
+  "n_keep": 8,
+  "drop": [
+    "disgust/34022.jpg",
+    "fear/12634.jpg",
+    "surprise/17433.jpg",
+    "surprise/25709.jpg"
+  ],
+  "remap": {
+    "angry/22183.jpg": "fear",
+    "disgust/10532.jpg": "angry",
+    "disgust/18077.jpg": "angry",
+    "disgust/23665.jpg": "angry",
+    "disgust/32487.jpg": "fear",
+    "fear/12674.jpg": "angry",
+    "fear/1796.jpg": "sad",
+    "fear/23038.jpg": "sad",
+    "fear/27145.jpg": "angry",
+    "fear/872.jpg": "angry",
+    "fear/9370.jpg": "angry",
+    "neutral/44.jpg": "fear",
+    "sad/16087.jpg": "fear"
+  },
+  "items": [
+    {
+      "id": "01",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "angry/22183.jpg",
+      "official_label": "angry",
+      "corrected_label": "fear"
+    },
+    {
+      "id": "02",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "disgust/32487.jpg",
+      "official_label": "disgust",
+      "corrected_label": "fear"
+    },
+    {
+      "id": "03",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "disgust/10532.jpg",
+      "official_label": "disgust",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "04",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "disgust/18077.jpg",
+      "official_label": "disgust",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "05",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "disgust/23665.jpg",
+      "official_label": "disgust",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "06",
+      "verdict": "unsure",
+      "action": "drop",
+      "relpath": "disgust/34022.jpg",
+      "official_label": "disgust",
+      "corrected_label": null
+    },
+    {
+      "id": "07",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "disgust/28332.jpg",
+      "official_label": "disgust",
+      "corrected_label": "disgust"
+    },
+    {
+      "id": "08",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "disgust/8948.jpg",
+      "official_label": "disgust",
+      "corrected_label": "disgust"
+    },
+    {
+      "id": "09",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "disgust/33209.jpg",
+      "official_label": "disgust",
+      "corrected_label": "disgust"
+    },
+    {
+      "id": "10",
+      "verdict": "unsure",
+      "action": "drop",
+      "relpath": "fear/12634.jpg",
+      "official_label": "fear",
+      "corrected_label": null
+    },
+    {
+      "id": "11",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/27145.jpg",
+      "official_label": "fear",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "12",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/12674.jpg",
+      "official_label": "fear",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "13",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/9370.jpg",
+      "official_label": "fear",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "14",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "fear/12350.jpg",
+      "official_label": "fear",
+      "corrected_label": "fear"
+    },
+    {
+      "id": "15",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/872.jpg",
+      "official_label": "fear",
+      "corrected_label": "angry"
+    },
+    {
+      "id": "16",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/1796.jpg",
+      "official_label": "fear",
+      "corrected_label": "sad"
+    },
+    {
+      "id": "17",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "fear/23038.jpg",
+      "official_label": "fear",
+      "corrected_label": "sad"
+    },
+    {
+      "id": "18",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "happy/32725.jpg",
+      "official_label": "happy",
+      "corrected_label": "happy"
+    },
+    {
+      "id": "19",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "neutral/5361.jpg",
+      "official_label": "neutral",
+      "corrected_label": "neutral"
+    },
+    {
+      "id": "20",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "neutral/11065.jpg",
+      "official_label": "neutral",
+      "corrected_label": "neutral"
+    },
+    {
+      "id": "21",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "neutral/44.jpg",
+      "official_label": "neutral",
+      "corrected_label": "fear"
+    },
+    {
+      "id": "22",
+      "verdict": "wrong",
+      "action": "remap",
+      "relpath": "sad/16087.jpg",
+      "official_label": "sad",
+      "corrected_label": "fear"
+    },
+    {
+      "id": "23",
+      "verdict": "correct",
+      "action": "keep",
+      "relpath": "surprise/30173.jpg",
+      "official_label": "surprise",
+      "corrected_label": "surprise"
+    },
+    {
+      "id": "24",
+      "verdict": "unsure",
+      "action": "drop",
+      "relpath": "surprise/25709.jpg",
+      "official_label": "surprise",
+      "corrected_label": null
+    },
+    {
+      "id": "25",
+      "verdict": "unsure",
+      "action": "drop",
+      "relpath": "surprise/17433.jpg",
+      "official_label": "surprise",
+      "corrected_label": null
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "source": "run_20260822T103812Z.json history.extra_val[1].raf_db (epoch 2)",
+  "split": "raf_db",
+  "weak_threshold": 0.8,
+  "class_f1": {
+    "angry": 0.8343558282208589,
+    "disgust": 0.6582278481012658,
+    "fear": 0.7575757575757576,
+    "happy": 0.9377738825591586,
+    "neutral": 0.8219971056439942,
+    "sad": 0.8313725490196079,
+    "surprise": 0.8783382789317508
+  },
+  "fer_val_accuracy_floor": 0.71,
+  "raf_val_support": {
+    "angry": 81,
+    "disgust": 80,
+    "fear": 37,
+    "happy": 592,
+    "neutral": 340,
+    "sad": 239,
+    "surprise": 164
+  }
+}

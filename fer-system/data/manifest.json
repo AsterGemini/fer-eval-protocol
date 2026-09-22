@@ -1,0 +1,179 @@
+{
+  "version": "1.4.0",
+  "created_at": "2026-09-22T03:44:23Z",
+  "fingerprint": "d106318121d283c49634ef09348a495887d5839fe2948da20abecf689a9dd2a5",
+  "class_names": [
+    "angry",
+    "disgust",
+    "fear",
+    "happy",
+    "neutral",
+    "sad",
+    "surprise"
+  ],
+  "sources": [
+    {
+      "name": "fer2013_jonathanoheix",
+      "role": "primary_train_val",
+      "kaggle_slug": "jonathanoheix/face-expression-recognition-dataset",
+      "root": "~/.cache/kagglehub/datasets/jonathanoheix/face-expression-recognition-dataset/versions/1",
+      "train_dir": "~/.cache/kagglehub/datasets/jonathanoheix/face-expression-recognition-dataset/versions/1/images/train",
+      "val_dir": "~/.cache/kagglehub/datasets/jonathanoheix/face-expression-recognition-dataset/versions/1/images/validation",
+      "sha256": "a9e191c36e59da910345229b5bc5e6d7c1187b72fcfa9b5526c539378cfe2748",
+      "train_sha256": "118e11425769316dffd6efd311ee897e90856c640b350959104a28dc7969e2b9",
+      "val_sha256": "ded614db56b05c90b831fb3127c65bb7a0645e1241f4b851b284bb8bbacef7e3",
+      "train_counts": {
+        "angry": 3993,
+        "disgust": 436,
+        "fear": 4103,
+        "happy": 7164,
+        "neutral": 4982,
+        "sad": 4938,
+        "surprise": 3205
+      },
+      "val_counts": {
+        "angry": 960,
+        "disgust": 111,
+        "fear": 1018,
+        "happy": 1825,
+        "neutral": 1216,
+        "sad": 1139,
+        "surprise": 797
+      },
+      "counts": {
+        "angry": 3993,
+        "disgust": 436,
+        "fear": 4103,
+        "happy": 7164,
+        "neutral": 4982,
+        "sad": 4938,
+        "surprise": 3205
+      },
+      "notes": "Cleaned FER2013-style ImageFolder split (Kaggle)."
+    },
+    {
+      "name": "raf_db",
+      "role": "extra_train_only",
+      "kaggle_slug": "nishchalchandel/raf-db-face-emotion-dataset",
+      "root": "~/.cache/kagglehub/datasets/nishchalchandel/raf-db-face-emotion-dataset/versions/3",
+      "train_dir": "~/.cache/kagglehub/datasets/nishchalchandel/raf-db-face-emotion-dataset/versions/3/train",
+      "val_dir": "~/.cache/kagglehub/datasets/nishchalchandel/raf-db-face-emotion-dataset/versions/3/validation",
+      "sha256": "810857acf05e928e1476b52653a673b76a4d0745c027017556e4a51e9a0998a8",
+      "counts": {
+        "angry": 705,
+        "disgust": 717,
+        "fear": 281,
+        "happy": 4772,
+        "neutral": 2524,
+        "sad": 1982,
+        "surprise": 1290
+      },
+      "notes": "RAF-DB basic 7 emotions. Train split + eval-only val (checkpoint monitor).",
+      "val_sha256": "5735970b6149fc173a69895811d4296a184deef3fcac9195ffd64d8ec28b2586",
+      "val_counts": {
+        "angry": 81,
+        "disgust": 80,
+        "fear": 37,
+        "happy": 592,
+        "neutral": 340,
+        "sad": 239,
+        "surprise": 164
+      }
+    },
+    {
+      "name": "affectnet",
+      "role": "extra_train_only",
+      "kaggle_slug": "mstjebashazida/affectnet",
+      "root": "~/.cache/kagglehub/datasets/mstjebashazida/affectnet/versions/1",
+      "train_dir": "~/.cache/kagglehub/datasets/mstjebashazida/affectnet/versions/1/archive (3)/Train",
+      "val_dir": null,
+      "sha256": "0a30570b8d7db044bba0a875ece47733addf44dc9e1c979b01112d60d060f057",
+      "counts": {
+        "angry": 1500,
+        "disgust": 1229,
+        "fear": 1512,
+        "happy": 2340,
+        "neutral": 2758,
+        "sad": 3091,
+        "surprise": 2119
+      },
+      "notes": "AffectNet 7-class in-the-wild subset. Train only; contempt ignored."
+    },
+    {
+      "name": "expw",
+      "role": "extra_train_only",
+      "kaggle_slug": "shahzadabbas/expression-in-the-wild-expw-dataset",
+      "root": "~/.cache/fer-system/expw",
+      "train_dir": "~/.cache/fer-system/expw/train",
+      "val_dir": null,
+      "sha256": "f9591b79c7a3e0b0888c926f84c34832e88cbfdc96953c17bc6fb73f0c0979fc",
+      "counts": {
+        "angry": 3602,
+        "disgust": 3805,
+        "fear": 1064,
+        "happy": 28893,
+        "neutral": 33927,
+        "sad": 10429,
+        "surprise": 6880
+      },
+      "notes": "ExpW in-the-wild faces (raw 7z + label.lst \u2192 prepared crops). Train only."
+    },
+    {
+      "name": "ferplus_minority",
+      "role": "extra_train_only",
+      "kaggle_slug": "deadskull7/fer2013",
+      "root": "~/.cache/fer-system/ferplus_minority",
+      "train_dir": "~/.cache/fer-system/ferplus_minority/train",
+      "val_dir": null,
+      "sha256": "c5ea5802a8074683ea397484cd97038da47f8c3e436b6162a10a114074c4739b",
+      "counts": {
+        "angry": 0,
+        "disgust": 45,
+        "fear": 338,
+        "happy": 0,
+        "neutral": 0,
+        "sad": 0,
+        "surprise": 0
+      },
+      "notes": "FER+ high-agreement disgust/fear (Training rows only). Not a val split."
+    },
+    {
+      "name": "ckplus",
+      "role": "extra_train_only",
+      "kaggle_slug": "shawon10/ckplus",
+      "root": "~/.cache/fer-system/ckplus",
+      "train_dir": "~/.cache/fer-system/ckplus/train",
+      "val_dir": null,
+      "sha256": "ebc60018d4642a69bd8eb1026125fb74202a7d4fb844824393099a9c1b4ad25b",
+      "counts": {
+        "angry": 0,
+        "disgust": 177,
+        "fear": 75,
+        "happy": 0,
+        "neutral": 0,
+        "sad": 0,
+        "surprise": 0
+      },
+      "notes": "CK+48 lab-posed disgust/fear. Train only."
+    },
+    {
+      "name": "minority_boost",
+      "role": "extra_train_only",
+      "kaggle_slug": "prasadsomvanshih/fer2013-affectnet-dataset-emotions",
+      "root": "~/.cache/fer-system/minority_boost",
+      "train_dir": "~/.cache/fer-system/minority_boost/train",
+      "val_dir": null,
+      "sha256": "48e79992956334f5dc57b559e01bff143336791f4cfa5fef9cabc676c64e30f4",
+      "counts": {
+        "angry": 0,
+        "disgust": 1148,
+        "fear": 1456,
+        "happy": 0,
+        "neutral": 0,
+        "sad": 0,
+        "surprise": 0
+      },
+      "notes": "AffectNet-family disgust/fear; near-dups of FER/AffectNet/RAF removed. Train only."
+    }
+  ]
+}

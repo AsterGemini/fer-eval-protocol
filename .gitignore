@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Local editor / OS junk at repo root
+Thumbs.db
+
+# Private agent playbooks (not part of the public dump)
+.cursor/
+Loop.md
+
+# Maintainer GPU playbooks (private clone only)
+fer-system/COLAB_ARTIFACTS.md
+fer-system/VAST.md
+fer-system/VAST_ARTIFACTS.md
