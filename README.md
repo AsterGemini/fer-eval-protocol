@@ -6,6 +6,9 @@ plug-and-play emotion API.
 
 Read this first: [`fer-system/PROTOCOL.md`](fer-system/PROTOCOL.md).
 
+
+> **Personal practice:** built while applying lessons from Chip Huyen’s *Designing Machine Learning Systems*. Shared publicly in case the measurement protocol helps others — not a polished product or SOTA claim. The reusable piece is [`fer-system/PROTOCOL.md`](fer-system/PROTOCOL.md).
+
 ## What this is
 
 Pinned measurement rules + a runnable public training recipe:
